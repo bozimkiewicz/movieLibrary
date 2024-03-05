@@ -1,0 +1,39 @@
+.form-container {
+  max-width: 600px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  border-radius: 1%;
+}
+
+.p-field {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type='text'],
+input[type='number'],
+textarea,
+p-calendar {
+  width: 100%;
+  padding: 8px;
+}
+
+.p-error {
+  font-size: 15px;
+}
+
+p-rating, p-inputNumber {
+  margin-left: 12px;
+}
+
+p-checkbox {
+  vertical-align: middle;
+  margin-right: 8px;
+}

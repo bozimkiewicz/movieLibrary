@@ -1,0 +1,10 @@
+<div>
+  <p-menubar [model]="items">
+    <div>
+      <app-auth *ngIf="!isAuth"></app-auth>
+      <div *ngIf="isAuth">
+        <p-menubar [model]="itemsUser"></p-menubar>
+      </div>
+    </div>
+  </p-menubar>
+</div>

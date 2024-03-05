@@ -1,0 +1,122 @@
+.movie-details-container {
+  max-width: 800px;
+  margin: 8px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 1%;
+}
+
+.back {
+  margin-bottom: 20px;
+}
+
+i {
+  margin-right: 10px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.description-section {
+  margin-bottom: 20px;
+}
+
+.details-section {
+  margin-bottom: 20px;
+}
+
+.detail {
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.director-section,
+.actors-section {
+  margin-bottom: 20px;
+}
+
+.director-section h3,
+.actors-section h3 {
+  margin-top: 0;
+}
+
+.actor-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.actor-list {
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+
+  .p-button {
+    width: 48%;
+  }
+}
+
+@media (max-width: 360px) {
+  .movie-details-container {
+    max-width: 100%;
+    margin: 8px;
+    padding: 10px;
+  }
+
+  .back {
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .description-section {
+    margin-bottom: 10px;
+  }
+
+  .details-section {
+    margin-bottom: 10px;
+  }
+
+  .detail {
+    margin-bottom: 5px;
+  }
+
+  .label {
+    margin-right: 5px;
+  }
+
+  .director-section,
+  .actors-section {
+    margin-bottom: 10px;
+  }
+
+  .director-section h3,
+  .actors-section h3 {
+    font-size: 16px;
+  }
+
+  .actor-list {
+    li {
+      margin-bottom: 3px;
+    }
+  }
+
+  .actions {
+    .p-button {
+      width: 100%;
+    }
+  }
+}

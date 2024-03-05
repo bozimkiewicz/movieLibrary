@@ -1,0 +1,161 @@
+<div class="form-container" *ngIf="!loading">
+    <h2>Add a new movie!</h2>
+    <p-form [formGroup]="movieForm">
+      <div class="p-field">
+        <label for="title">Title</label>
+        <input id="title" type="text" pInputText formControlName="title" placeholder="Title">
+        <small class="p-error" *ngIf="movieForm.get('title')?.hasError('required') && movieForm.get('title')?.touched">
+          Title is required
+        </small>
+        <small class="p-error" *ngIf="(movieForm.get('title')?.hasError('minlength') || movieForm.get('title')?.hasError('maxlength')) && movieForm.get('title')?.touched">
+          Title must be between 2 and 100 characters
+        </small>
+        <small class="p-error" *ngIf="movieForm.get('title')?.hasError('pattern') && movieForm.get('title')?.touched">
+          Title must contain only letters and numbers, spaces and common punctuation
+        </small>
+      </div>
+  
+      <div class="p-field">
+        <p-checkbox inputId="watched" formControlName="watched" [binary]="true"></p-checkbox>
+        <label for="watched">Watched</label>
+      </div>
+  
+      <h4>Movie details</h4>
+  
+      <div formGroupName="movieDetails">
+        <div class="p-field">
+          <label for="description">Description</label>
+          <textarea id="description" type="text" pInputTextarea formControlName="description" placeholder="Description"></textarea>
+          <small class="p-error" *ngIf="movieForm.get('movieDetails.description')?.hasError('required') && movieForm.get('movieDetails.description')?.touched">
+            Description is required
+          </small>
+          <small class="p-error" *ngIf="(movieForm.get('movieDetails.description')?.hasError('minlength') || movieForm.get('movieDetails.description')?.hasError('maxlength')) && movieForm.get('movieDetails.description')?.touched">
+            Description must be between 10 and 200 characters
+          </small>
+        </div>
+  
+        <div class="p-field">
+          <label for="releaseDate">Release date</label>
+          <p-calendar id="releaseDate" formControlName="releaseDate"></p-calendar>
+          <small class="p-error" *ngIf="movieForm.get('movieDetails.releaseDate')?.hasError('required') && movieForm.get('movieDetails.releaseDate')?.touched">
+            Release date is required
+          </small>
+        </div>
+  
+        <div class="p-field">
+          <label for="duration">Duration</label>
+          <p-inputNumber id="duration" formControlName="duration" placeholder="Duration (in minutes)"></p-inputNumber>
+          <small class="p-error" *ngIf="movieForm.get('movieDetails.duration')?.hasError('required') && movieForm.get('movieDetails.duration')?.touched">
+            Duration is required
+          </small>
+          <small class="p-error" *ngIf="movieForm.get('movieDetails.duration')?.hasError('min') && movieForm.get('movieDetails.duration')?.touched">
+            Duration must be at least 1 min long
+          </small>
+        </div>
+  
+        <div class="p-field">
+          <label for="genre">Genre</label>
+          <input id="genre" type="text" pInputText formControlName="genre" placeholder="Genre">
+          <small class="p-error" *ngIf="movieForm.get('movieDetails.genre')?.hasError('required') && movieForm.get('movieDetails.genre')?.touched">
+            Genre is required
+          </small>
+        </div>
+  
+        <div class="p-field">
+          <label for="country">Country</label>
+          <input id="country" type="text" pInputText formControlName="country" placeholder="Country">
+          <small class="p-error" *ngIf="movieForm.get('movieDetails.country')?.hasError('required') && movieForm.get('movieDetails.country')?.touched">
+            Country is required
+          </small>
+        </div>
+  
+        <div class="p-field">
+          <label for="rating">Rating</label>
+          <p-rating id="rating" formControlName="rating" [cancel]="false" [stars]="10"></p-rating>
+          <small class="p-error" *ngIf="movieForm.get('movieDetails.rating')?.hasError('required') && movieForm.get('movieDetails.rating')?.touched">
+            Rating is required
+          </small>
+          <small class="p-error" *ngIf="(movieForm.get('movieDetails.rating')?.hasError('min') || movieForm.get('movieDetails.rating')?.hasError('max')) && movieForm.get('movieDetails.rating')?.touched">
+            Rating must be between 1 and 10
+          </small>
+        </div>
+      </div>
+  
+      <h4>Director</h4>
+  
+      <div formGroupName="director">
+        <div class="p-field">
+          <label for="firstName">First Name</label>
+          <input id="firstName" type="text" pInputText formControlName="firstName" placeholder="First Name">
+          <small class="p-error" *ngIf="movieForm.get('director.firstName')?.hasError('required') && movieForm.get('director.firstName')?.touched">
+            First Name is required
+          </small>
+          <small class="p-error" *ngIf="movieForm.get('director.firstName')?.hasError('noSpaceAllowed') && movieForm.get('director.firstName')?.touched">
+            No space allowed in first name
+          </small>
+          <small class="p-error" *ngIf="(movieForm.get('director.firstName')?.hasError('minlength') || movieForm.get('director.firstName')?.hasError('maxlength')) && movieForm.get('director.firstName')?.touched">
+            First Name must be between 2 and 30 characters
+          </small>
+        </div>
+  
+        <div class="p-field">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" type="text" pInputText formControlName="lastName" placeholder="Last Name">
+          <small class="p-error" *ngIf="movieForm.get('director.lastName')?.hasError('required') && movieForm.get('director.lastName')?.touched">
+            Last Name is required
+          </small>
+          <small class="p-error" *ngIf="movieForm.get('director.lastName')?.hasError('noSpaceAllowed') && movieForm.get('director.lastName')?.touched">
+            No space allowed in last name
+          </small>
+          <small class="p-error" *ngIf="(movieForm.get('director.lastName')?.hasError('minlength') || movieForm.get('director.lastName')?.hasError('maxlength')) && movieForm.get('director.lastName')?.touched">
+            Last Name must be between 2 and 30 characters
+          </small>
+        </div>
+      </div>
+  
+      <h4>Actors</h4>
+  
+      <div formArrayName="actors">
+        <div *ngFor="let actor of actorForms.controls; let i = index;">
+          <div [formGroupName]="i">
+            <div class="p-field">
+              <label for="actorFirstName">First Name</label>
+              <input id="actorFirstName" type="text" pInputText formControlName="firstName" placeholder="First Name">
+              <small class="p-error" *ngIf="actor.get('firstName')?.hasError('required') && actor.get('firstName')?.touched">
+                First Name is required
+              </small>
+              <small class="p-error" *ngIf="actor.get('firstName')?.hasError('noSpaceAllowed') && actor.get('firstName')?.touched">
+                No space allowed in first name
+              </small>
+              <small class="p-error" *ngIf="(actor.get('firstName')?.hasError('minlength') || actor.get('firstName')?.hasError('maxlength')) && actor.get('firstName')?.touched">
+                First Name must be between 2 and 30 characters
+              </small>
+            </div>
+            <div class="p-field">
+              <label for="actorLastName">Last Name</label>
+              <input id="actorLastName" type="text" pInputText formControlName="lastName" placeholder="Last Name">
+              <small class="p-error" *ngIf="actor.get('lastName')?.hasError('required') && actor.get('lastName')?.touched">
+                Last Name is required
+              </small>
+              <small class="p-error" *ngIf="actor.get('lastName')?.hasError('noSpaceAllowed') && actor.get('lastName')?.touched">
+                No space allowed in last name
+              </small>
+              <small class="p-error" *ngIf="(actor.get('lastName')?.hasError('minlength') || actor.get('lastName')?.hasError('maxlength')) && actor.get('lastName')?.touched">
+                Last Name must be between 2 and 30 characters
+              </small>
+            </div>
+  
+            <p-button [text]="true" [outlined]="true" label="Remove actor" severity="danger" (click)="deleteActor(i)"></p-button>
+          </div>
+        </div>
+      </div>
+  
+      <div>
+        <p-button [text]="true" label="Add actor" (click)="addActor()"></p-button>
+      </div>
+  
+      <div>
+        <p-button icon="pi pi-check" label="Submit" (click)="submit()"></p-button>
+      </div>
+    </p-form>
+</div>

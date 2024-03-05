@@ -1,0 +1,91 @@
+<div>
+  <div>
+    <p-table
+      #dt
+      [value]="dataSource"
+      [paginator]="true"
+      [rows]="5"
+      [totalRecords]="totalRecords"
+      [globalFilterFields]="['title', 'releaseDate', 'genre', 'country', 'duration', 'rating', 'watched']"
+      selectionMode="single"
+      [(selection)]="selectedMovie"
+      (onRowSelect)="onRowSelect()"
+      >
+      <ng-template pTemplate="caption">
+          <div class="p-d-flex p-jc-between">
+              <h3>Movie List</h3>
+              <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search">
+              </span>
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="title" style="width: 25%;">
+                Title
+                <p-sortIcon field="title"></p-sortIcon>
+                <p-columnFilter field="title" matchMode="contains" display="input"></p-columnFilter>
+              </th>
+              <th pSortableColumn="releaseDate" style="width: 15%;">
+                Release date
+                <p-sortIcon field="releaseDate"></p-sortIcon>
+                <p-columnFilter type="date" field="releaseDate" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="genre" style="width: 15%;">
+                Genre
+                <p-sortIcon field="genre"></p-sortIcon>
+                <p-columnFilter field="genre" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                  <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                    <p-multiSelect [options]="genres" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name">
+                      <ng-template let-option pTemplate="item">
+                        <div class="inline-block vertical-align-middle">
+                          <span>{{ option }}</span>
+                        </div>
+                      </ng-template>
+                    </p-multiSelect>
+                  </ng-template>
+                </p-columnFilter>
+              </th>
+              <th pSortableColumn="country" style="width: 10%;">
+                Country
+                <p-sortIcon field="country"></p-sortIcon>
+                <p-columnFilter field="country" matchMode="equals" display="menu">
+                  <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                    <p-dropdown [ngModel]="value" [options]="countries" (onChange)="filter($event.value)" placeholder="Any"></p-dropdown>
+                  </ng-template>
+                </p-columnFilter>
+              </th>
+              <th pSortableColumn="duration" style="width: 10%;">
+                Duration
+                <p-sortIcon field="duration"></p-sortIcon>
+                <p-columnFilter type="numeric" field="duration" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="rating" style="width: 10%;">
+                Rating
+                <p-sortIcon field="rating"></p-sortIcon>
+                <p-columnFilter type="numeric" field="rating" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="watched" style="width: 10%;">
+                <span class="inline-block">
+                  Watched<p-columnFilter type="boolean" field="watched"></p-columnFilter>
+                </span>
+              </th>
+            </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-movie>
+          <tr [pSelectableRow]="movie">
+              <td>{{ movie.title }}</td>
+              <td>{{ movie.releaseDate | date }}</td>
+              <td>{{ movie.genre }}</td>
+              <td>{{ movie.country }}</td>
+              <td>{{ movie.duration | convertDuration }}</td>
+              <td>{{ movie.rating }}/10</td>
+              <td>
+                <i class="pi" [ngClass]="{ 'pi-check-circle': movie.watched, 'pi-times-circle': !movie.watched }"></i>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+  </div>
+</div>

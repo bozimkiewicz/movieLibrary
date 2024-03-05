@@ -1,0 +1,66 @@
+<div class="movie-details-container">
+  <div class="back">
+    <p-button [outlined]="true" [plain]="true" [routerLink]="['/movies']">
+      <i class="pi pi-angle-double-left"></i>
+      Back to list
+    </p-button>
+  </div>
+
+  <h2>{{ movie.title }}</h2>
+
+  <div class="description-section">
+    <h3>Description</h3>
+    <p>{{ movieDetails.description }}</p>
+  </div>
+  <div class="details-section">
+    <div class="detail">
+      <span class="label">Watched:</span>
+      <span class="value">{{ movie.watched ? 'Yes' : 'No' }}</span>
+    </div>
+    <div class="detail">
+      <span class="label">Duration:</span>
+      <span class="value">{{ movieDetails.duration }} minutes</span>
+    </div>
+    <div class="detail">
+      <span class="label">Release Date:</span>
+      <span class="value">{{ movieDetails.releaseDate | date }}</span>
+    </div>
+    <div class="detail">
+      <span class="label">Genre:</span>
+      <span class="value">{{ movieDetails.genre }}</span>
+    </div>
+    <div class="detail">
+      <span class="label">Country:</span>
+      <span class="value">{{ movieDetails.country }}</span>
+    </div>
+    <div class="detail">
+      <span class="label">Rating:</span>
+      <span class="value">{{ movieDetails.rating }}/10</span>
+    </div>
+  </div>
+
+  <div class="director-section">
+    <h3>Director</h3>
+    <div class="director">
+      <span>{{ director.firstName }} {{ director.lastName }}</span>
+    </div>
+  </div>
+
+  <div class="actors-section">
+    <h3>Actors</h3>
+    <ul class="actor-list">
+      <li *ngFor="let actor of actors">
+        <span>{{ actor.firstName }} {{ actor.lastName }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="actions" *ngIf="isAuth">
+    <p-button [outlined]="true" label="Edit" (click)="editMovie()">
+      <i class="pi pi-pencil"></i>
+    </p-button>
+    <p-button [outlined]="true" severity="danger" label="Delete" (click)="confirm()">
+      <i class="pi pi-trash"></i>
+    </p-button>
+  </div>
+</div>

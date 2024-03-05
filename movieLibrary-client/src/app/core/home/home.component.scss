@@ -1,0 +1,49 @@
+div {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p-button {
+    margin: 0 10px;
+    i {
+      margin-right: 8px;
+    }
+  }
+}
+
+@media (max-width: 360px) and (max-height: 760px) {
+  div {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .actions {
+    p-button {
+      margin: 0 5px;
+      i {
+        margin-right: 4px;
+      }
+    }
+  }
+}
