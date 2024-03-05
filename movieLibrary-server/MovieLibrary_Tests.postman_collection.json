@@ -1,0 +1,650 @@
+{
+	"info": {
+		"_postman_id": "04e8ca46-fc63-43d5-88a3-410d7d3db718",
+		"name": "MovieLibrary_Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24723784"
+	},
+	"item": [
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "Get all movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movie by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movies/d50a2a41-a03c-40cc-948f-5b26ffe38d23",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies",
+								"d50a2a41-a03c-40cc-948f-5b26ffe38d23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies by watched",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movies/watched?watched=true",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies",
+								"watched"
+							],
+							"query": [
+								{
+									"key": "watched",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get random movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movies/random",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies",
+								"random"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies by director full name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movies/director?firstName=Quentin&lastName=Tarantino",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies",
+								"director"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Quentin"
+								},
+								{
+									"key": "lastName",
+									"value": "Tarantino"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post a new movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Pulp Fiction\",\r\n    \"watched\": true,\r\n    \"movieDetails\": \"21610273-31c7-4df0-96ef-2000e31bd23d\",\r\n    \"director\": \"6f3365e4-b14c-47f3-8829-fa5412a9232d\",\r\n    \"actors\": [\r\n        \"44e32c01-ef62-43a8-a19d-627991020e96\",\r\n        \"579186f4-e798-4b68-9db5-f347f5caf352\",\r\n        \"c6289b45-351a-4a30-8092-233b9463e6f2\",\r\n        \"b7cd8506-3ffb-4290-bfd4-d06864174c54\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a movie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Pulp Fiction\",\r\n    \"watched\": false,\r\n    \"movieDetails\": \"81cb15a0-497f-44f1-ab80-2d04149e5ef6\",\r\n    \"director\": \"0d9d00aa-7bf8-4476-a578-baa542a82a5f\",\r\n    \"actors\": [\r\n        \"4a492023-7dc3-498f-bf10-edd6bb4a43eb\",\r\n        \"230ffce6-78e4-4283-87e0-a12e636d2ebd\",\r\n        \"f535ab2e-3a4c-428a-beb4-a17006b16d9b\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/movies/d50a2a41-a03c-40cc-948f-5b26ffe38d23",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies",
+								"d50a2a41-a03c-40cc-948f-5b26ffe38d23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a movie by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movies/d50a2a41-a03c-40cc-948f-5b26ffe38d23",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies",
+								"d50a2a41-a03c-40cc-948f-5b26ffe38d23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all movies",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movies/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movies",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie details",
+			"item": [
+				{
+					"name": "Get all movie details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movie-details",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movie-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movie details by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movie-details/5f7e2d96-60a9-4725-b0a5-02ceec475820",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movie-details",
+								"5f7e2d96-60a9-4725-b0a5-02ceec475820"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post a new movie details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Pulp Fiction is a 1994 neo-noir film about the lives of two mob hit men, a boxer, \\na crime boss and his wife, and a pair of diner bandits that intertwine in four tales \\nof violence and redemption.\\n\",\r\n    \"duration\": \"PT2H34M\",\r\n    \"releaseYear\": \"1994\",\r\n    \"genre\": \"Crime\",\r\n    \"country\": \"USA\",\r\n    \"rating\": 8.9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/movie-details",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movie-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit movie details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Pulp Fiction is a 1994 neo-noir film about the lives of two mob hit men, a boxer, \\na crime boss and his wife, and a pair of diner bandits that intertwine in four tales \\nof violence and redemption.\\n\",\r\n    \"duration\": \"PT2H34M\",\r\n    \"releaseYear\": \"1994\",\r\n    \"genre\": \"Crime\",\r\n    \"country\": \"USA\",\r\n    \"rating\": 9.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/movie-details/5f7e2d96-60a9-4725-b0a5-02ceec475820",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movie-details",
+								"5f7e2d96-60a9-4725-b0a5-02ceec475820"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie details by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movie-details/5f7e2d96-60a9-4725-b0a5-02ceec475820",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movie-details",
+								"5f7e2d96-60a9-4725-b0a5-02ceec475820"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all movies details",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/movie-details/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movie-details",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Director",
+			"item": [
+				{
+					"name": "Get all directors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/directors",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"directors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get director by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/directors/8d624d02-5291-43cd-b563-86053a9a4088",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"directors",
+								"8d624d02-5291-43cd-b563-86053a9a4088"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post a new director",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Quentin\",\r\n    \"lastName\": \"Tarantino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/directors",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"directors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit director",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Micheal\",\r\n    \"lastName\": \"Bay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/directors/8d624d02-5291-43cd-b563-86053a9a4088",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"directors",
+								"8d624d02-5291-43cd-b563-86053a9a4088"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete director by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/directors/8d624d02-5291-43cd-b563-86053a9a4088",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"directors",
+								"8d624d02-5291-43cd-b563-86053a9a4088"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all directors",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/directors/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"directors",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actor",
+			"item": [
+				{
+					"name": "Get all actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/actors",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get actor by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/actors/579186f4-e798-4b68-9db5-f347f5caf352",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors",
+								"579186f4-e798-4b68-9db5-f347f5caf352"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post a new actor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Tom\",\r\n    \"lastName\": \"Holland\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/actors",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit actor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Brad\",\r\n    \"lastName\": \"Pitt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/actors/579186f4-e798-4b68-9db5-f347f5caf352",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors",
+								"579186f4-e798-4b68-9db5-f347f5caf352"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/actors/579186f4-e798-4b68-9db5-f347f5caf352",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors",
+								"579186f4-e798-4b68-9db5-f347f5caf352"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all actors",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/actors/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"actors",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

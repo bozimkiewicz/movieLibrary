@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:16.1
+    environment:
+      - POSTGRES_DB=MovieLibraryApp
+      - POSTGRES_USER=postgres-user
+      - POSTGRES_PASSWORD=s3cr3t
+    ports:
+      - 5433:5432
